@@ -1,0 +1,15 @@
+require("../configs")
+const app = require("../index")
+const db = require("../../db/mongo.db")
+
+/* ---------------------------- Initial Database ---------------------------- */
+db.databaseConnection()
+  .then((result) => console.log("Connect to database :)"))
+  .catch(error => console.log(error))
+/* ----------------------------------- --- ---------------------------------- */
+/* ------------------------------- Open Server ------------------------------ */
+const Port = appConfigs.APP_PORT || 3000
+app.listen(Port, () => {
+  console.log(`Connect to port: ${Port}`)
+})
+/* ----------------------------------- --- ---------------------------------- */
